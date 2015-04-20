@@ -10,7 +10,7 @@ function Suite_(script, organization, project) {
     var result =  {
       project: this.project_,
       organization: this.organization_,
-      success: true,
+      status: Status.PASSING,
       total: 0,
       totalSuccess: 0,
       totalFail: 0,
@@ -37,7 +37,7 @@ function Suite_(script, organization, project) {
             result.totalSuccess++;
           } else {
             result.totalFail++;
-            result.success = false;          
+            result.status = Status.FAILING;
           }
           
           result.tests.push(testResult);
@@ -51,7 +51,7 @@ function Suite_(script, organization, project) {
       result.message = getElapsedMsg_(result.lastRun);
       
     } catch (error) {
-      result.success = false;
+      result.status = Status.FAILING;
       result.message = getErrorMsg_(error);
     }
     
