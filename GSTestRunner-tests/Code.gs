@@ -5,7 +5,7 @@ function runSuite() {
     
   }
   
-  var result = GSTestRunner.runSuite(this, "bkper", "BkperApp");
+  var result = GSTestRunner.runSuite(this, "BkperApp", options);
 }
 
 function beforeAllTests_() {

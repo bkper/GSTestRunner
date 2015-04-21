@@ -1,0 +1,36 @@
+<?!= include_('CSS'); ?>
+<table class='header'>
+  <tr>
+    <td class='project'><?= suiteResult.project ?></td>
+    <td class='projectMsg'>(<?= suiteResult.message ?>)</td>
+    <td class='badge'><img onClick='$("#<?= suiteResult.organization ?>_<?= suiteResult.project ?>").css("display", "block" );' src='https://gs-tests-status.appspot.com/badge.svg?project=<?= suiteResult.project ?>&organization=<?= suiteResult.organization ?>'/></td>
+    <td class='badgeLinks' id="<?= suiteResult.organization ?>_<?= suiteResult.project ?>">
+      <b>Badge URL:</b> https://gs-tests-status.appspot.com/badge.svg?project=<?= suiteResult.project ?>&organization=<?= suiteResult.organization ?>
+      <br/>
+      <b>Markdown:</b> [![GSTests status](https://gs-tests-status.appspot.com/badge.svg?project=<?= suiteResult.project ?>&organization=<?= suiteResult.organization ?>)](https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?project=<?= suiteResult.project ?>&organization=<?= suiteResult.organization ?>)
+    </td>
+  </tr>
+</table>
+
+<ul>
+  <li>Total: <?= suiteResult.total ?></li>
+  <li>Success: <?= suiteResult.totalSuccess ?></li>
+  <li>Fail: <?= suiteResult.totalFail ?></li>
+</ul>
+
+<table class='tests'>
+  <? for (var i = 0; i < suiteResult.testsResults.length; i++) { ?>
+    <? var testRes = suiteResult.testsResults[i]?>
+    <tr>
+      <td class='<?= "success_" + testRes.success ?>'><pre><?= testRes.name ?></pre></td>
+      <td class='<?= "success_" + testRes.success ?>'><pre><?= testRes.message ?></pre></td>
+    </tr>
+  <? } ?>
+</table>
+
+<p class='lastRun'>
+  Last run was <?=BkperUtils.formatDateRelativeTo(new Date(new Number(suiteResult.lastRunMs)), new Date()) ?>
+</p>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

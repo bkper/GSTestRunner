@@ -4,22 +4,57 @@ var BEFORE_EACH_TEST_FUNC_ = "beforeEachTest_";
 var AFTER_EACH_TEST_FUNC_ = "afterEachTest_";
 var AFTER_ALL_TESTS_FUNC_ = "afterAllTests_";
 
-var Status = {
-  PASSING : "PASSING",
-  FAILING: "FAILING",
-  UNKNOWN:  "UNKNOWN"
+var DEFAULT_ORGANIZATION_ = "projects";
+
+
+function runSuite(suite, project, options) {
+  if (options == null) {
+    options = new Object();
+  }
+  
+  if (options.organization == null) {
+    options.organization = DEFAULT_ORGANIZATION_;
+  }
+  
+  var suiteWrapper = new SuiteWrapper_(suite, options.organization, project);
+  var suiteResult = suiteWrapper.run();
+  
+  if (suiteResult.total > 0) {
+    SuiteResultStore_.save(suiteResult);
+  }
+  
+  suiteWrapper.logResult();
+  
+  return suiteResult;  
 }
 
+function clear() {
+  PropertiesService.getScriptProperties().deleteAllProperties();
+}
 
-function runSuite(script, organization, project) {
+function getSuiteResult(project, organization) {
   
-  var suite = new Suite_(script, organization, project)
+  if (organization == null) {
+    organization = DEFAULT_ORGANIZATION_;
+  }
   
-  var result = suite.run();
+  var suiteResult = SuiteResultStore_.load(organization, project);
   
-  ResultStore_.save(result);
-
-  return result;  
+  if (suiteResult == null) {
+    suiteResult = {
+      project: project,
+      organization: organization,
+      status: Status_.UNKNOWN,
+      total: 0,
+      totalSuccess: 0,
+      totalFail: 0,
+      testsResults: new Array(),
+      message: "???",
+      lastRunMs: new Date(1970, 0, 1).getTime(),
+    }
+  }
+  
+  return suiteResult;
   
 }
 

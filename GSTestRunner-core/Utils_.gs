@@ -3,13 +3,11 @@ function getElapsedMsg_(start) {
 }
 
 function getErrorMsg_(error) {
-  var message = error;
+  var message = "\n" + error;
   if (error['stack']) {
-    message = message + "\n" + error["stack"];
+    message += "\n" + error["stack"];
   }
   return message;
 }
 
-function include_(filename) {
-  return HtmlService.createHtmlOutputFromFile(filename).setSandboxMode(HtmlService.SandboxMode.IFRAME).getContent();
-}
+
