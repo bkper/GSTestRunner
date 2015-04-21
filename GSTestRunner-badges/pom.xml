@@ -5,8 +5,8 @@
     <packaging>war</packaging>
     <version>1</version>
 
-    <groupId>com.bkper</groupId>
-    <artifactId>gs-test-status</artifactId>
+    <groupId>com.bkper.gstestrunner</groupId>
+    <artifactId>badges</artifactId>
 
     <properties>
         <appengine.app.version>1</appengine.app.version>

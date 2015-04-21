@@ -53,19 +53,13 @@ public class GSTestsStatusServlet extends HttpServlet {
 
 		HttpRequest request = requestFactory
 				.buildGetRequest(new GenericUrl(
-						"https://script.google.com/macros/s/AKfycbw6pD7W-bGM-QA1xql_JH4xkokZLBnb6WEiw_JZmGVH7KTQ848/exec?organization="
+						"https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?organization="
 								+ organization + "&project=" + project + "&format=json"));
 		request.setFollowRedirects(true);
 		request.setConnectTimeout(10000);
 		HttpResponse response = request.execute();
 
-
 		String json = response.parseAsString();
-
-
-
-//		Result result = response.parseAs(Result.class);
-
 		Result result = gson.fromJson(json, Result.class);
 
 		InputStream in = GSTestsStatusServlet.class.getClassLoader()

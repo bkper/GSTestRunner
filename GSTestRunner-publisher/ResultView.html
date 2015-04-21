@@ -1,0 +1,25 @@
+<?!= include_('CSS'); ?>
+<table class='header'>
+  <tr>
+    <td class='project'><?= result.project ?></td> <td class='projectMsg'>(<?= result.message ?>)</td>
+  </tr>
+</table>
+
+<ul>
+  <li>Total: <?= result.total ?></li>
+  <li>Success: <?= result.totalSuccess ?></li>
+  <li>Fail: <?= result.totalFail ?></li>
+</ul>
+
+<table class='tests'>
+  <? for (var i = 0; i < result.tests.length; i++) { ?>
+    <tr>
+      <td class='<?= "success_" + result.tests[i].success ?>'><pre><?= result.tests[i].name ?></pre></td>
+      <td class='<?= "success_" + result.tests[i].success ?>'><pre><?= result.tests[i].message ?></pre></td>
+    </tr>
+  <? } ?>
+</table>
+
+<p class='lastRun'>
+  Last run was <?=BkperUtils.formatDateRelativeTo(new Date(new Number(result.lastRun)), new Date()) ?>
+</p>
