@@ -7,7 +7,7 @@
    </servlet>
    <servlet-mapping>
        <servlet-name>GSTestsStatusServlet</servlet-name>
-       <url-pattern>/badge.png</url-pattern>
+       <url-pattern>/badge.svg</url-pattern>
    </servlet-mapping>
 
 </web-app>

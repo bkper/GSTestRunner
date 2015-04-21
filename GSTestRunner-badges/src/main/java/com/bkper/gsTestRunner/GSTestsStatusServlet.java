@@ -63,9 +63,9 @@ public class GSTestsStatusServlet extends HttpServlet {
 		Result result = gson.fromJson(json, Result.class);
 
 		InputStream in = GSTestsStatusServlet.class.getClassLoader()
-				.getResourceAsStream(result.getStatus() + ".png");
+				.getResourceAsStream(result.getStatus() + ".svg");
 
-		resp.setContentType("image/png");
+		resp.setContentType("image/svg+xml");
 		resp.setHeader("Expires", "Sat, 6 May 1995 12:00:00 GMT");
 		resp.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
 		resp.addHeader("Cache-Control", "post-check=0, pre-check=0");
