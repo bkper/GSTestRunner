@@ -1,8 +1,11 @@
-function runSuite() {
+function runSuite(evt) {
   
   var options = {
     organization: "bkper",
-    
+    //Trick
+    notify: evt != null,
+    recipient: "krishna@nimbustecnologia.com.br",
+    testCodeUrl: "https://script.google.com/a/nimbustecnologia.com.br/d/1xh1cmKeHZFNAwu3apMSsLMX8U4KZn2NEnMd8Pb9wQ2LRvUx0OBMVF8wx/edit",
   }
   
   var result = GSTestRunner.runSuite(this, "BkperApp", options);

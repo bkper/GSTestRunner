@@ -1,21 +1,29 @@
 <?!= include_('CSS'); ?>
+
+<? var id = suiteResult.organization + "_" + suiteResult.name ?>
+
+<div class='content'>
+
 <table class='header'>
   <tr>
-    <td class='project'><?= suiteResult.project ?></td>
-    <td class='projectMsg'>(<?= suiteResult.message ?>)</td>
-    <td class='badge'><img onClick='$("#<?= suiteResult.organization ?>_<?= suiteResult.project ?>").css("display", "block" );' src='https://gs-tests-status.appspot.com/badge.svg?project=<?= suiteResult.project ?>&organization=<?= suiteResult.organization ?>'/></td>
-    <td class='badgeLinks' id="<?= suiteResult.organization ?>_<?= suiteResult.project ?>">
-      <b>Badge URL:</b> https://gs-tests-status.appspot.com/badge.svg?project=<?= suiteResult.project ?>&organization=<?= suiteResult.organization ?>
-      <br/>
-      <b>Markdown:</b> [![GSTests status](https://gs-tests-status.appspot.com/badge.svg?project=<?= suiteResult.project ?>&organization=<?= suiteResult.organization ?>)](https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?project=<?= suiteResult.project ?>&organization=<?= suiteResult.organization ?>)
+    <td class='suiteName'><?= suiteResult.name ?></td>
+    <td class='suiteMsg'>(<?= suiteResult.message ?>)</td>
+    <td class='badge'><img id="<?= id ?>_badge" onClick='showBadgeUrls(<?= suiteResult.organization ?>, <?= suiteResult.name ?>)' src='<?= suiteResult.badgeUrl ?>'/></td>
+    <td class='badgeLinks' id="<?= id ?>_badgeLinks">
+      <div>
+        <b>Image URL:</b> <?= suiteResult.badgeUrl ?>
+      </div>
+      <div>
+        <b>Markdown:</b> [![GSTests status](<?= suiteResult.badgeUrl ?>)](<?= suiteResult.url ?>)
+      </div>
     </td>
   </tr>
 </table>
 
 <ul>
   <li>Total: <?= suiteResult.total ?></li>
-  <li>Success: <?= suiteResult.totalSuccess ?></li>
-  <li>Fail: <?= suiteResult.totalFail ?></li>
+  <li>Passed: <?= suiteResult.passed ?></li>
+  <li>Failed: <?= suiteResult.failed ?></li>
 </ul>
 
 <table class='tests'>
@@ -30,7 +38,24 @@
 
 <p class='lastRun'>
   Last run was <?=BkperUtils.formatDateRelativeTo(new Date(new Number(suiteResult.lastRunMs)), new Date()) ?>
+  
+  <? if (suiteResult.testCodeUrl) {?>
+  - <a href='<?= suiteResult.testCodeUrl ?>' target='blank'>Test code</a>
+  <? }?>
 </p>
 
+</div>
+
+<footer>
+  Tests ran by <a href="https://github.com/bkper/GSTestRunner" target="_blank">GSTestRunner</a>
+</footer>
+
+<script>
+function showBadgeUrls(organization, name) {
+  var id = "#"+ organization + "_" + name;
+  $(id + "_badgeLinks").css("display", "block" );
+  $(id + "_badge").css("cursor", "default" );
+}
+</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

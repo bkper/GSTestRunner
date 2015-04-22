@@ -36,12 +36,8 @@ public class GSTestsStatusServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		String project = req.getParameter("project");
+		String suiteName = req.getParameter("suite");
 		String organization = req.getParameter("organization");
-
-		if (organization == null) {
-			organization = "projects";
-		}
 
 		HttpRequestFactory requestFactory = HTTP_TRANSPORT
 				.createRequestFactory(new HttpRequestInitializer() {
@@ -51,10 +47,14 @@ public class GSTestsStatusServlet extends HttpServlet {
 					}
 				});
 
-		HttpRequest request = requestFactory
-				.buildGetRequest(new GenericUrl(
-						"https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?organization="
-								+ organization + "&project=" + project + "&format=json"));
+		String url = "https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?suite=" + suiteName + "&format=json";
+
+		if (organization != null) {
+			url += "&organization=" + organization;
+		}
+
+
+		HttpRequest request = requestFactory .buildGetRequest(new GenericUrl(url));
 		request.setFollowRedirects(true);
 		request.setConnectTimeout(10000);
 		HttpResponse response = request.execute();

@@ -1,19 +1,21 @@
-function SuiteWrapper_(suite, organization, project) {
+function SuiteWrapper_(suite, name, organization) {
   
   this.suite_ = suite;
   this.organization_ = organization;
-  this.project_ = project;
+  this.name_ = name;
   
   this.suiteResult =  {
+    name: this.name_,
     organization: this.organization_,
-    project: this.project_,
     status: Status_.PASSING,
     total: 0,
-    totalSuccess: 0,
-    totalFail: 0,
+    passed: 0,
+    failed: 0,
     testsResults: new Array(),
     message: "",
     lastRunMs: Date.now(),
+    url: getResultURL_(this.name_, this.organization_),
+    badgeUrl: getBadgeURL_(this.name_, this.organization_),
   };  
   
   SuiteWrapper_.prototype.run = function() {
@@ -31,9 +33,9 @@ function SuiteWrapper_(suite, organization, project) {
           this.suiteResult.total++;
           
           if (testResult.success) {
-            this.suiteResult.totalSuccess++;
+            this.suiteResult.passed++;
           } else {
-            this.suiteResult.totalFail++;
+            this.suiteResult.failed++;
             this.suiteResult.status = Status_.FAILING;
           }
           
@@ -56,20 +58,21 @@ function SuiteWrapper_(suite, organization, project) {
   }
   
   SuiteWrapper_.prototype.logResult = function() {
-    var resultLog = "\n\nTEST SUITE RESULT: \n\n" + this.suiteResult.organization + "/" + this.suiteResult.project + " - " + this.suiteResult.status + " (" + this.suiteResult.message + ")";
-    resultLog += "\ntotal: " + this.suiteResult.total; 
-    resultLog += "\ntotal fail: " + this.suiteResult.totalFail; 
-    resultLog += "\ntotal success: " + this.suiteResult.totalSuccess; 
-    resultLog += "\nTests results:"; 
+    var resultLog = "\n\nTEST SUITE RESULT: \n\n" + this.suiteResult.name + " - " + this.suiteResult.status + " (" + this.suiteResult.message + ")"
+    + "\ntotal: " + this.suiteResult.total 
+    + "\npassed: " + this.suiteResult.passed 
+    + "\ntfailed: " + this.suiteResult.failed 
+    + "\nTests results:"; 
     
     for (var i = 0; i < this.suiteResult.testsResults.length; i++) {
       var testRes = this.suiteResult.testsResults[i];
       resultLog += "\n\t" + testRes.name + " (" + testRes.message + ")";
     }
     
-    resultLog += "\n\n Test results published at \n\n https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?project=" + this.suiteResult.project + "&organization=" + this.suiteResult.organization + "\n\n";
-    
     Logger.log(resultLog);
+    
+    Logger.log("\n\n Test results published at \n\n " + this.suiteResult.url + " \n\n");
+    
   }
   
   

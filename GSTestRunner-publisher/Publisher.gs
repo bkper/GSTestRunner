@@ -1,10 +1,10 @@
 function doGet(request) {
   
   var organization = request.parameter.organization;
-  var project = request.parameter.project;
+  var suite = request.parameter.suite;
   var format = request.parameter.format;
   
-  var suiteResult = GSTestRunner.getSuiteResult(project, organization);
+  var suiteResult = GSTestRunner.getSuiteResult(suite, organization);
   
   if (format == "json") {
     return ContentService.createTextOutput(JSON.stringify(suiteResult)).setMimeType(ContentService.MimeType.JSON);
@@ -12,8 +12,8 @@ function doGet(request) {
     var template = HtmlService.createTemplateFromFile('SuiteResultView');
     template.suiteResult = suiteResult;
     var title = "GSTest results for ";
-    if (project) {
-      title += project;
+    if (suite) {
+      title += suite;
     } else if (organization) {
       title += organization;
     }
