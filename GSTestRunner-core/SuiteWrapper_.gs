@@ -1,12 +1,12 @@
-function SuiteWrapper_(suite, name, organization) {
+function SuiteWrapper_(suite, name, namespace) {
   
   this.suite_ = suite;
-  this.organization_ = organization;
+  this.namespace_ = namespace;
   this.name_ = name;
   
   this.suiteResult =  {
     name: this.name_,
-    organization: this.organization_,
+    namespace: this.namespace_,
     status: Status_.PASSING,
     total: 0,
     passed: 0,
@@ -14,8 +14,8 @@ function SuiteWrapper_(suite, name, organization) {
     testsResults: new Array(),
     message: "",
     lastRunMs: Date.now(),
-    url: getResultURL_(this.name_, this.organization_),
-    badgeUrl: getBadgeURL_(this.name_, this.organization_),
+    url: getResultURL_(this.name_, this.namespace_),
+    badgeUrl: getBadgeURL_(this.name_, this.namespace_),
   };  
   
   SuiteWrapper_.prototype.run = function() {

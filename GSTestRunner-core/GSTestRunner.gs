@@ -12,7 +12,9 @@ function runSuite(suite, name, options) {
     options = new Object();
   }
   
-  var suiteWrapper = new SuiteWrapper_(suite, name, options.organization);
+  AuthController_.checkAuthorization(Session.getActiveUser(), name, options.namespace);
+  
+  var suiteWrapper = new SuiteWrapper_(suite, name, options.namespace);
   var suiteResult = suiteWrapper.run();
   
   if (options.testCodeUrl) {
@@ -35,14 +37,12 @@ function clear() {
   CacheService.getScriptCache().remove("BkperApp_bkper")
 }
 
-
-
-function getSuiteResult(name, organization) {
+function getSuiteResult(name, namespace) {
   
-  var suiteResult = SuiteResultStore_.load(name, organization);
+  var suiteResult = SuiteResultStore_.load(name, namespace);
   
   if (suiteResult == null) {
-    var unknownSuite = new SuiteWrapper_(null, name, organization);
+    var unknownSuite = new SuiteWrapper_(null, name, namespace);
     suiteResult = unknownSuite.suiteResult;
     suiteResult.status = Status_.UNKNOWN;
     suiteResult.message = "---";

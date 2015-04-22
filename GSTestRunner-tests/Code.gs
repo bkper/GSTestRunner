@@ -1,7 +1,7 @@
 function runSuite(evt) {
   
   var options = {
-    organization: "bkper",
+    namespace: "bkper",
     //Trick
     notify: evt != null,
     recipient: "krishna@nimbustecnologia.com.br",
@@ -20,7 +20,7 @@ function beforeEachTest_() {
 }
 
 function test1() {
-  //  throw "Failing test!!!";
+    throw "Failing test!!!";
 }
 
 function test2() {

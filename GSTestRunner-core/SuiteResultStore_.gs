@@ -1,16 +1,17 @@
-var DEFAULT_ORGANIZATION = "_____undefined____";
-
 var SuiteResultStore_ = {
   
   save: function(suiteResult) {
     var suiteResultJSON = JSON.stringify(suiteResult);
-    var key = getStoreKey_(suiteResult.name, suiteResult.organization);
+    var key = getStoreKey_(suiteResult.name, suiteResult.namespace);
+    Logger.log("STORING " + key);
     CacheService.getScriptCache().put(key, suiteResultJSON, 21600)
   },
   
-  load: function(suiteName, organization) {
-    var key = getStoreKey_(suiteName, organization);
+  load: function(suiteName, namespace) {
+    var key = getStoreKey_(suiteName, namespace);
+    Logger.log(key);
     var suiteResultJSON = CacheService.getScriptCache().get(key);
+    Logger.log(suiteResultJSON);
     if (suiteResultJSON != null) {
       return JSON.parse(suiteResultJSON);
     }
@@ -19,9 +20,3 @@ var SuiteResultStore_ = {
   
 }
 
-function getStoreKey_(suiteName, organization) {
-  if (organization == null) {
-    organization = DEFAULT_ORGANIZATION;
-  }
-  return suiteName + "_" + organization;
-}

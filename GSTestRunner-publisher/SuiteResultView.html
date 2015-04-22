@@ -1,6 +1,6 @@
 <?!= include_('CSS'); ?>
 
-<? var id = suiteResult.organization + "_" + suiteResult.name ?>
+<? var id = suiteResult.namespace + "_" + suiteResult.name ?>
 
 <div class='content'>
 
@@ -8,7 +8,7 @@
   <tr>
     <td class='suiteName'><?= suiteResult.name ?></td>
     <td class='suiteMsg'>(<?= suiteResult.message ?>)</td>
-    <td class='badge'><img id="<?= id ?>_badge" onClick='showBadgeUrls(<?= suiteResult.organization ?>, <?= suiteResult.name ?>)' src='<?= suiteResult.badgeUrl ?>'/></td>
+    <td class='badge'><img id="<?= id ?>_badge" onClick='showBadgeUrls(<?= suiteResult.namespace ?>, <?= suiteResult.name ?>)' src='<?= suiteResult.badgeUrl ?>'/></td>
     <td class='badgeLinks' id="<?= id ?>_badgeLinks">
       <div>
         <b>Image URL:</b> <?= suiteResult.badgeUrl ?>
@@ -51,8 +51,8 @@
 </footer>
 
 <script>
-function showBadgeUrls(organization, name) {
-  var id = "#"+ organization + "_" + name;
+function showBadgeUrls(namespace, name) {
+  var id = "#"+ namespace + "_" + name;
   $(id + "_badgeLinks").css("display", "block" );
   $(id + "_badge").css("cursor", "default" );
 }

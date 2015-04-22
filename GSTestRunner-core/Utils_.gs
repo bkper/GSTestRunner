@@ -10,20 +10,36 @@ function getErrorMsg_(error) {
   return message;
 }
 
-function getBadgeURL_(suiteName, organization) {
+function getStoreKey_(suiteName, namespace) {
+  if (namespace == null) {
+    namespace = "_____undefined____";
+  }
+  return suiteName + "_" + namespace;
+}
+
+function getBadgeURL_(suiteName, namespace) {
   var badgeURL = RESULT_BADGE_BASE_URL_ + "?suite=" + suiteName;
-  if (organization != null) {
-    badgeURL += "&organization=" + organization;
+  if (namespace != null) {
+    badgeURL += "&namespace=" + namespace;
   }
   return badgeURL;
 }
 
-function getResultURL_(suiteName, organization) {
+function getResultURL_(suiteName, namespace) {
   var resultURL = PUBLISH_RESULTS_BASE_URL_ + "?suite=" + suiteName;
-  if (organization != null) {
-    resultURL += "&organization=" + organization
+  if (namespace != null) {
+    resultURL += "&namespace=" + namespace
   }
   return resultURL;
+}
+
+function contains_(array, value) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] == value) {
+      return true
+    }
+  }
+  return false;
 }
 
 

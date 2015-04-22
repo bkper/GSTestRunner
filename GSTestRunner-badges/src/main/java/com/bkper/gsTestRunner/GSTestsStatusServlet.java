@@ -37,7 +37,7 @@ public class GSTestsStatusServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String suiteName = req.getParameter("suite");
-		String organization = req.getParameter("organization");
+		String namespace = req.getParameter("namespace");
 
 		HttpRequestFactory requestFactory = HTTP_TRANSPORT
 				.createRequestFactory(new HttpRequestInitializer() {
@@ -49,8 +49,8 @@ public class GSTestsStatusServlet extends HttpServlet {
 
 		String url = "https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?suite=" + suiteName + "&format=json";
 
-		if (organization != null) {
-			url += "&organization=" + organization;
+		if (namespace != null) {
+			url += "&namespace=" + namespace;
 		}
 
 
