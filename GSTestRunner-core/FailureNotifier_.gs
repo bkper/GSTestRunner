@@ -4,7 +4,7 @@ var FailureNotifier_ = {
     
     if (suiteResult.failed > 0 && options.notify == true) {
       
-      var subject = "[GSTestRunner] " + suiteResult.name + " test failed!";
+      var subject = "[GSTestRunner] " + suiteResult.suiteName + " test failed!";
       
       var body = "\n\n Total: " + suiteResult.total
       + "\n Passed: " + suiteResult.passed
@@ -23,17 +23,6 @@ var FailureNotifier_ = {
       
       if (suiteResult.testCodeUrl) {
         body += "\n\n Test Code: " + options.testCodeUrl;
-      }
-
-      
-      var effectiveUserEmail = Session.getEffectiveUser().getEmail();
-      
-      if (options.recipient == null) {
-        options.recipient = effectiveUserEmail;
-      }
-      
-      if (options.recipient.indexOf(effectiveUserEmail) < 0) {
-        options.recipient += ", " + effectiveUserEmail;
       }
       
       MailApp.sendEmail(options.recipient, subject, body);       

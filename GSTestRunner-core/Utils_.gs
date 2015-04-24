@@ -10,11 +10,11 @@ function getErrorMsg_(error) {
   return message;
 }
 
-function getStoreKey_(suiteName, namespace) {
+function getStoreKey_(suiteName, namespace, prefix) {
   if (namespace == null) {
     namespace = "_____undefined____";
   }
-  return suiteName + "_" + namespace;
+  return prefix + BkperUtils.normalizeText(suiteName + "_" + namespace, "-");
 }
 
 function getBadgeURL_(suiteName, namespace) {
@@ -34,6 +34,9 @@ function getResultURL_(suiteName, namespace) {
 }
 
 function contains_(array, value) {
+  if (array == null) {
+    return false;
+  }
   for (var i = 0; i < array.length; i++) {
     if (array[i] == value) {
       return true
@@ -42,7 +45,16 @@ function contains_(array, value) {
   return false;
 }
 
-
+function ensureEffectiveUserAsRecipient_(options) {
+  var effectiveUserEmail = Session.getEffectiveUser().getEmail();
+  if (options.recipient == null) {
+    options.recipient = effectiveUserEmail;
+  }
+  if (options.recipient.indexOf(effectiveUserEmail) < 0) {
+    options.recipient += ", " + effectiveUserEmail;
+  }
+  return options;
+}
 
 
 

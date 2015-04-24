@@ -1,11 +1,11 @@
-function SuiteWrapper_(suite, name, namespace) {
+function SuiteWrapper_(suite, suiteName, namespace) {
   
   this.suite_ = suite;
   this.namespace_ = namespace;
-  this.name_ = name;
+  this.suiteName_ = suiteName;
   
   this.suiteResult =  {
-    name: this.name_,
+    suiteName: this.suiteName_,
     namespace: this.namespace_,
     status: Status_.PASSING,
     total: 0,
@@ -14,15 +14,15 @@ function SuiteWrapper_(suite, name, namespace) {
     testsResults: new Array(),
     message: "",
     lastRunMs: Date.now(),
-    url: getResultURL_(this.name_, this.namespace_),
-    badgeUrl: getBadgeURL_(this.name_, this.namespace_),
+    url: getResultURL_(this.suiteName_, this.namespace_),
+    badgeUrl: getBadgeURL_(this.suiteName_, this.namespace_),
   };  
   
   SuiteWrapper_.prototype.run = function() {
     try {
       
-      if (this.suite_[BEFORE_ALL_TESTS_FUNC_]) {
-        this.suite_[BEFORE_ALL_TESTS_FUNC_]();
+      if (this.suite_[BEFORE_SUITE_FUNC_]) {
+        this.suite_[BEFORE_SUITE_FUNC_]();
       }  
       
       for (var propName in this.suite_) {
@@ -43,8 +43,8 @@ function SuiteWrapper_(suite, name, namespace) {
         } 
       } 
       
-      if (this.suite_[AFTER_ALL_TESTS_FUNC_]) {
-        this.suite_[AFTER_ALL_TESTS_FUNC_]();
+      if (this.suite_[AFTER_SUITE_FUNC_]) {
+        this.suite_[AFTER_SUITE_FUNC_]();
       }
       
       this.suiteResult.message = getElapsedMsg_(this.suiteResult.lastRunMs);
@@ -58,10 +58,10 @@ function SuiteWrapper_(suite, name, namespace) {
   }
   
   SuiteWrapper_.prototype.logResult = function() {
-    var resultLog = "\n\nTEST SUITE RESULT: \n\n" + this.suiteResult.name + " - " + this.suiteResult.status + " (" + this.suiteResult.message + ")"
+    var resultLog = "\n\nTEST SUITE RESULT: \n\n" + this.suiteResult.suiteName + " - " + this.suiteResult.status + " (" + this.suiteResult.message + ")"
     + "\ntotal: " + this.suiteResult.total 
     + "\npassed: " + this.suiteResult.passed 
-    + "\ntfailed: " + this.suiteResult.failed 
+    + "\nfailed: " + this.suiteResult.failed 
     + "\nTests results:"; 
     
     for (var i = 0; i < this.suiteResult.testsResults.length; i++) {

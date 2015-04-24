@@ -1,15 +1,19 @@
 <?!= include_('CSS'); ?>
 
-<? var id = suiteResult.namespace + "_" + suiteResult.name ?>
+<? var resId = normalize_(suiteResult.namespace + "_" + suiteResult.suiteName) ?>
+
+<script>
+  var resId = <?= resId ?>;
+</script>
 
 <div class='content'>
 
 <table class='header'>
   <tr>
-    <td class='suiteName'><?= suiteResult.name ?></td>
+    <td class='suiteName'><?= suiteResult.suiteName ?></td>
     <td class='suiteMsg'>(<?= suiteResult.message ?>)</td>
-    <td class='badge'><img id="<?= id ?>_badge" onClick='showBadgeUrls(<?= suiteResult.namespace ?>, <?= suiteResult.name ?>)' src='<?= suiteResult.badgeUrl ?>'/></td>
-    <td class='badgeLinks' id="<?= id ?>_badgeLinks">
+    <td class='badge'><img id="<?= resId ?>_badge" onClick='showBadgeUrls()' src='<?= suiteResult.badgeUrl ?>'/></td>
+    <td class='badgeLinks' id="<?= resId ?>_badgeLinks">
       <div>
         <b>Image URL:</b> <?= suiteResult.badgeUrl ?>
       </div>
@@ -51,8 +55,8 @@
 </footer>
 
 <script>
-function showBadgeUrls(namespace, name) {
-  var id = "#"+ namespace + "_" + name;
+function showBadgeUrls() {
+  var id = "#"+ resId;
   $(id + "_badgeLinks").css("display", "block" );
   $(id + "_badge").css("cursor", "default" );
 }

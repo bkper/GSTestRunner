@@ -10,7 +10,9 @@ function doGet(request) {
     return ContentService.createTextOutput(JSON.stringify(suiteResult)).setMimeType(ContentService.MimeType.JSON);
   } else {
     var template = HtmlService.createTemplateFromFile('SuiteResultView');
+    
     template.suiteResult = suiteResult;
+    
     var title = "GSTest results for ";
     if (suite) {
       title += suite;
@@ -22,6 +24,11 @@ function doGet(request) {
   }
   
 }
+
+function normalize_(text) {
+  return BkperUtils.normalizeText(text,  "_");
+}
+
 
 function include_(filename) {
   return HtmlService.createHtmlOutputFromFile(filename).setSandboxMode(HtmlService.SandboxMode.IFRAME).getContent();
