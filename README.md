@@ -50,8 +50,8 @@ To avoid conflicts, **the suiteName must be unique**. If someone already taken t
  `Suite name "Get Started" already taken! Change the name and/or namespace, or ask one of those guys to include you as recipient: [xxx@gmail.com]`
 
 You can do either:
- - Change the name and/or namespace, on [options](#Options)
- - Ask the ones who already taken that suite name to include you, by adding to the [options](#Options).recipient and running the suite at least once.
+ - Change the name and/or namespace, on [options](#options)
+ - Ask the ones who already taken that suite name to include you, by adding your email to the [options](#options)**.recipient** and running the suite at least once.
 
 
 #Befores and Afters
@@ -86,7 +86,7 @@ function afterSuite_() {
 
 ````
 
-<a name="Options"/>
+<a name="options"/>
 #Options
 
 When calling `GSTestRunner.runSuite` You can pass some options as the third parameter, that can change the behavior:
