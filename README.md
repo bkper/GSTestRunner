@@ -86,7 +86,7 @@ function afterSuite_() {
 
 ````
 
-
+<a name="Options"/>
 #Options
 
 When calling `GSTestRunner.runSuite` You can pass some options as the third parameter, that can change the behavior:
