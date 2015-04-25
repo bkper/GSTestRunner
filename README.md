@@ -167,7 +167,6 @@ To get the links, on suite result page, just click on badge:
 ![Status Badge links](http://developers.bkper.com/images/docs/gsTestRunnerBadge.png)
 
 
-
 #Complete example
 
 The complete code for this guide can be found [here](https://script.google.com/a/nimbustecnologia.com.br/d/19IiyKv3t5WlqDLcDWwMO8Y_eBeWaNJyP9kZiPSGECT8GCrbFlBw_28B-/edit)
