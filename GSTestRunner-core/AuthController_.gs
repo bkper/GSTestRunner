@@ -11,7 +11,7 @@ var AuthController_ = {
         suiteName = namespace + "/" + suiteName;
       }
       var authUsersStr = authorizedUsers.join(", ");
-      throw "Suite name " + suiteName + " already taken! Change the name/namespace, or ask one of those guys to include you as recipient: [" + authUsersStr + "]";
+      throw 'Suite name "' + suiteName + '" already taken! Change the name and/or namespace, or ask one of those guys to include you as recipient: [' + authUsersStr + ']';
     } else {
       var recipients = options.recipient.split(",");
       AuthStore_.includeUsers(authorizedUsers, recipients, suiteName, namespace);

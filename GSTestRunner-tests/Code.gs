@@ -1,13 +1,13 @@
-function runSuite(evt) {
+function runSuite(event) {
 
   //Trick to know if is triggered by time trigger
-  var isRunningByTimeTrigger = evt != null;
+  var isRunningByTimeTrigger = event != null;
   
   var options = { 
     namespace: "bkper",
     notify: isRunningByTimeTrigger,
-    errorOnFail: !isRunningByTimeTrigger, 
     recipient: "bkper-dev@googlegroups.com",
+    errorOnFail: !isRunningByTimeTrigger, 
     testCodeUrl: "https://script.google.com/a/nimbustecnologia.com.br/d/1xh1cmKeHZFNAwu3apMSsLMX8U4KZn2NEnMd8Pb9wQ2LRvUx0OBMVF8wx/edit",
   }
   
@@ -31,6 +31,7 @@ function testBeforesAndAfters() {
     
     test2: function() {
       this.log += "test2_";
+      bad();
     },
     
     afterTest_: function() {

@@ -13,24 +13,23 @@ function TestWrapper_(suite, name) {
       success: true,
     }
     
+    if (this.suite_[BEFORE_TEST_FUNC_]) {
+      this.suite_[BEFORE_TEST_FUNC_]();
+    }
+    
     try {
       
-      if (this.suite_[BEFORE_TEST_FUNC_]) {
-        this.suite_[BEFORE_TEST_FUNC_]();
-      }
-      
       this.suite_[this.name_]();
-      
-      if (this.suite_[AFTER_TEST_FUNC_]) {
-        this.suite_[AFTER_TEST_FUNC_]();
-      }      
-      
       testResult.message = getElapsedMsg_(start);
-      
     } catch (error) {
       testResult.success = false;
       testResult.message = getErrorMsg_(error);
     }
+    
+    if (this.suite_[AFTER_TEST_FUNC_]) {
+      this.suite_[AFTER_TEST_FUNC_]();
+    }      
+    
     
     return testResult;
     

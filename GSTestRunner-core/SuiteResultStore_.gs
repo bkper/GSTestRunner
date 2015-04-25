@@ -17,3 +17,14 @@ var SuiteResultStore_ = {
   
 }
 
+//Retrieving results
+function logSuiteResult() {
+  var suiteResult = getSuiteResult("Get Started", "bkper");
+  Logger.log("status: " + suiteResult.status);
+  Logger.log("total: " + suiteResult.total);
+  Logger.log("failed: " + suiteResult.failed);
+  Logger.log("passed: " + suiteResult.passed);
+  
+  Logger.log("URL: " + suiteResult.url);
+  
+}
