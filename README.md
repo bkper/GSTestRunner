@@ -43,11 +43,15 @@ The suite result based on code above can be found here: [![GSTests status](https
 
 If you are testing another library, don't forget to let the [Development Mode] on, so the test will run always on latest code version.
 
-**PS**: The suiteName must be unique. If someone already taken the name, you will get an error like this:
+#Suite names
+
+To avoid conflicts, **the suiteName must be unique**. If someone already taken the name, you will get an error like this:
 
  `Suite name "Get Started" already taken! Change the name and/or namespace, or ask one of those guys to include you as recipient: [xxx@gmail.com]`
 
-Just follow the instructions to find an available suite name, or to get your email added to an already taken one.
+You can do either:
+ - Change the name and/or namespace, on [options](#Options)
+ - Ask the ones who already taken that suite name to include you, by adding to the [options](#Options).recipient and running the suite at least once.
 
 
 #Befores and Afters
