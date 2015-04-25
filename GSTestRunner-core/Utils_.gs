@@ -56,5 +56,29 @@ function ensureEffectiveUserAsRecipient_(options) {
   return options;
 }
 
+function storeProperty_(key, value) {
+  PropertiesService.getScriptProperties().setProperty(key, value);
+  
+  //BUG: Cache is getting shared-scoped sometimes. Check with Google
+//  CacheService.getScriptCache().put(key, value, 21600)
+}
+
+function readProperty_(key) {
+  
+  return PropertiesService.getScriptProperties().getProperty(key);
+
+  //BUG: Cache is getting shared-scoped sometimes. Check with Google
+//  var value = CacheService.getScriptCache().get(key);
+//  if (value == null) {
+//    value = PropertiesService.getScriptProperties().getProperty(key);
+//    if (value != null) {
+//      CacheService.getScriptCache().put(key, value, 21600)
+//    }  else {
+//      CacheService.getScriptCache().remove(key);
+//    }
+//  }
+//  return value;
+}
+
 
 

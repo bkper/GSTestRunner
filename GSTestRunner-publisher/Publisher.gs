@@ -29,7 +29,6 @@ function normalize_(text) {
   return BkperUtils.normalizeText(text,  "_");
 }
 
-
 function include_(filename) {
   return HtmlService.createHtmlOutputFromFile(filename).setSandboxMode(HtmlService.SandboxMode.IFRAME).getContent();
 }

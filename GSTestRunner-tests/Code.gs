@@ -1,9 +1,9 @@
 function runSuite(evt) {
-  
+
+  //Trick to know if is triggered by time trigger
   var isRunningByTimeTrigger = evt != null;
   
   var options = { 
-    //Trick
     namespace: "bkper",
     notify: isRunningByTimeTrigger,
     errorOnFail: !isRunningByTimeTrigger, 
@@ -13,7 +13,6 @@ function runSuite(evt) {
   
   var result = GSTestRunner.runSuite(this, "GSTestRunner", options);
 }
-
 
 function testBeforesAndAfters() {
   var suite = {
@@ -61,7 +60,7 @@ function testRunSuite() {
       //ok
     },
   }
-  var suiteResult = GSTestRunner.runSuite(suite, "GSTestRunner_TEST", {namespace:"bkper"})
+  var suiteResult = GSTestRunner.runSuite(suite, "GSTestRunner_TEST", {namespace:"bkper", recipient: "test@nimbustecnologia.com.br"})
   
   GSUnit.assertEquals(3, suiteResult.total);
   GSUnit.assertEquals(1, suiteResult.failed);
@@ -90,7 +89,7 @@ function testRunTest() {
 }
 
 function testGetSuiteResult() {
-  var unknownResult = GSTestRunner.getSuiteResult("Inexistent suite",  "inexistente namespace")
+  var unknownResult = GSTestRunner.getSuiteResult("Non existent suite",  "non existent namespace")
   GSUnit.assertEquals("UNKNOWN", unknownResult.status);
   
   //Fill suite

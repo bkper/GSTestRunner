@@ -93,6 +93,7 @@ function runTest(suite, testName) {
 * 
 */
 function getSuiteResult(suiteName, namespace) {
+  Logger.log("Getting suite: " + namespace + "/" + suiteName )
   if (suiteName == null) {
     throw "required param: suiteName";
   }
