@@ -127,7 +127,7 @@ Take a look at the trick to know if the suite is running by a time trigger, or m
 
 You can see the results of a test suite by checking the log after calling `GSTestRunner.runSuite`.
 
-Everytime you run a test suite, the results are stored for later retrieve. You can check the logs to see the results, or retrieve it anytime by calling `GSTestRunner.getSuiteResult`:
+Everytime you run a test suite, the results are stored for later retrieve by calling `GSTestRunner.getSuiteResult`:
 
 ````javascript
 
