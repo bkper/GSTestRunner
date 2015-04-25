@@ -13,7 +13,7 @@ GSTestRunner helps with [TDD] and also set a lightweight [CI] for your GS code.
 
 This library does NOT provide assertions. For that, we suggest [GSUnit].
 
-#Get Started
+#Get started
 
 Add the library through project key: **Mv3gVv8-YsY7WWlQhoAGWgpNuZToV6OsP**
 
@@ -123,7 +123,7 @@ function runSuite(event) {
 ````
 Take a look at the trick to know if the suite is running by a time trigger, or manually. Its good to avoid unnecessary email notifications when on development.
 
-#Suite Result
+#Suite result
 
 You can see the results of a test suite by checking the log after calling `GSTestRunner.runSuite`.
 
@@ -162,7 +162,7 @@ function testA_() {
 ````
 When you run a single test, the results are NOT stored.
 
-#Status Badges
+#Status badges
 
 With GSTestRunner, you can embed little status badges into your project's README or general documentation. That way, visitors of your projects or site can immediately see its test status.
 
