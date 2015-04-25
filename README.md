@@ -17,7 +17,7 @@ This library does NOT provide assertions. For that, we suggest [GSUnit].
 
 Add the library through project key: **Mv3gVv8-YsY7WWlQhoAGWgpNuZToV6OsP**
 
-Create a script with test methods starting with "test":
+Create a script with test methods starting with `test`:
 
 ````javascript
 
@@ -160,10 +160,17 @@ When you run a single test, the results are NOT stored.
 
 #Status Badges
 
+With GSTestRunner, you can embed little status badges into your project's README or general documentation. That way, visitors of your projects or site can immediately see its test status.
+
+To get the links, on suite result page, just click on badge:
+
+![Status Badge links](http://developers.bkper.com/images/docs/gsTestRunnerBadge.png)
 
 
 
-#Complete Example
+#Complete example
+
+The complete code for this guide can be found [here](https://script.google.com/a/nimbustecnologia.com.br/d/19IiyKv3t5WlqDLcDWwMO8Y_eBeWaNJyP9kZiPSGECT8GCrbFlBw_28B-/edit)
 
 
 
