@@ -11,7 +11,7 @@
 
 GSTestRunner helps with [TDD] and also let you set a lightweight [CI] for your GS libraries.
 
-This library does NOT provide assertions. For that, we suggest [GSUnit].
+It does NOT provide assertions. For that, we suggest [GSUnit].
 
 #Get started
 
