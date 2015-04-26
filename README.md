@@ -121,7 +121,7 @@ function runSuite(event) {
 }
 
 ````
-Take a look at the trick to know if the suite is running by a time trigger, or manually. Its good to avoid unnecessary email notifications when on development.
+Take a look at the trick to know if the suite is running by a time trigger, or manually. Its good to avoid unnecessary email notifications when running manually.
 
 #Suite result
 
