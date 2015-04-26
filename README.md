@@ -132,14 +132,9 @@ Everytime you run a test suite, the results are stored for later retrieval by ca
 ````javascript
 
 function logSuiteResult() {
-  var suiteResult = getSuiteResult("Get Started", "bkper");
-  Logger.log("status: " + suiteResult.status);
-  Logger.log("total: " + suiteResult.total);
-  Logger.log("failed: " + suiteResult.failed);
-  Logger.log("passed: " + suiteResult.passed);
-
-  Logger.log("URL: " + suiteResult.url);
-
+  var result = GSTestRunner.getSuiteResult("Get Started", "bkper");
+  Logger.log("status: " + result.status);
+  Logger.log("url: " + result.url);
 }
 
 ````
