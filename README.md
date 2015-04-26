@@ -92,7 +92,7 @@ function afterSuite_() {
 When calling `GSTestRunner.runSuite` you can pass some options as the third parameter, that can change the behavior:
 
 
-  option    |  Type   | What it does
+  Option    |  Type   | What it does
 ----------- | ------- | ------------
 namespace   | string  | Define a namespace to avoid suite naming colisions
 notify      | boolean | Send email notifications to recipient when test fails
