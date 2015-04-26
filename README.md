@@ -39,7 +39,7 @@ function testB_() {
 
 Then, run the suite passing `this` as the suite object, and set a trigger to periodically run the test suite, depending on your needs - every hour would be good ;)
 
-The suite result based on code above can be found here: [![GSTests status](https://gs-tests-status.appspot.com/badge.svg?suite=Get Started&namespace=bkper)](https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?suite=Get Started&namespace=bkper)
+The results based on code above can be found by clicking here: [![GSTests status](https://gs-tests-status.appspot.com/badge.svg?suite=Get Started&namespace=bkper)](https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?suite=Get Started&namespace=bkper)
 
 If you are testing another library, don't forget to let the [Development Mode] on, so the test will run always on latest code version.
 
@@ -89,7 +89,7 @@ function afterSuite_() {
 <a name="options"/>
 #Options
 
-When calling `GSTestRunner.runSuite` You can pass some options as the third parameter, that can change the behavior:
+When calling `GSTestRunner.runSuite` you can pass some options as the third parameter, that can change the behavior:
 
 
   option    |  Type   | What it does
@@ -127,7 +127,7 @@ Take a look at the trick to know if the suite is running by a time trigger, or m
 
 You can see the results of a test suite by checking the log after calling `GSTestRunner.runSuite`.
 
-Everytime you run a test suite, the results are stored for later retrieve by calling `GSTestRunner.getSuiteResult`:
+Everytime you run a test suite, the results are stored for later retrieval by calling `GSTestRunner.getSuiteResult`:
 
 ````javascript
 
@@ -160,7 +160,7 @@ function testA_() {
 }
 
 ````
-When you run a single test, the results are NOT stored.
+When you run a single test, the results are NOT stored neither published to web view.
 
 #Status badges
 
