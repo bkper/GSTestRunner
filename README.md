@@ -3,13 +3,17 @@
 [CI]: http://en.wikipedia.org/wiki/Continuous_integration
 [Google Apps Script]: https://developers.google.com/apps-script/
 [Development Mode]: https://developers.google.com/apps-script/guide_libraries#testAndDebug
+[GSTestRunner]: http://developers.bkper.com/docs/GSTestRunner
+[GSTestRunner.runSuite]: http://developers.bkper.com/docs/GSTestRunner/global.html#runSuite
+[GSTestRunner.runTest]: http://developers.bkper.com/docs/GSTestRunner/global.html#runTest
+[GSTestRunner.getSuiteResult]: http://developers.bkper.com/docs/GSTestRunner/global.html#getSuiteResult
 
 
 # GSTestRunner  [![GSTests status](https://gs-tests-status.appspot.com/badge.svg?suite=GSTestRunner&namespace=bkper)](https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?suite=GSTestRunner&namespace=bkper)
 
 [Google Apps Script] library to run tests, publish results and send email notifications of test failures.
 
-GSTestRunner helps with [TDD] and also let you set a lightweight [CI] with Apps Script.
+[GSTestRunner] helps with [TDD] and also let you set a lightweight [CI] with Apps Script.
 
 It does NOT provide assertions. For that, we suggest [GSUnit].
 
@@ -56,7 +60,7 @@ You can do either:
 
 #Befores and Afters
 
-Sometimes you need to setup and cleanup fixtures before and after tests. If implemented, GSTestRunner run the following functions, in respective order:
+Sometimes you need to setup and cleanup fixtures before and after tests. If implemented, [GSTestRunner] run the following functions, in respective order:
 
 Function      | Order
 ------------- | -------------
@@ -86,10 +90,10 @@ function afterSuite_() {
 
 ````
 
-<a name="options"/>
+<a name="options"></a>
 #Options
 
-When calling `GSTestRunner.runSuite` you can pass some options as the third parameter, that can change the behavior:
+When calling [GSTestRunner.runSuite] you can pass some options as the third parameter, that can change the behavior:
 
 
   Option    |  Type   | What it does
@@ -125,9 +129,9 @@ Take a look at the trick to know if the suite is running by a time trigger, or m
 
 #Suite result
 
-You can see the results of a test suite by checking the log after calling `GSTestRunner.runSuite`.
+You can see the results of a test suite by checking the log after calling [GSTestRunner.runSuite].
 
-Everytime you run a test suite, the results are stored for later retrieval by calling `GSTestRunner.getSuiteResult`:
+Everytime you run a test suite, the results are stored for later retrieval by calling [GSTestRunner.getSuiteResult]:
 
 ````javascript
 
@@ -142,7 +146,7 @@ Results are also published to a simple web view, and can be accessed through the
 
 #Running a single test
 
-You can run a single test by calling `GSTestRunner.runTest`:
+You can run a single test by calling [GSTestRunner.runTest]:
 
 ````javascript
 
@@ -159,7 +163,7 @@ When you run a single test, the results are NOT stored neither published to web 
 
 #Status badges
 
-With GSTestRunner, you can embed little status badges into your project's README or general documentation. That way, visitors of your projects or site can immediately see its test status.
+With [GSTestRunner], you can embed little status badges into your project's README or general documentation. That way, visitors of your projects or site can immediately see its test status.
 
 To get the links, on suite result page, just click on badge:
 

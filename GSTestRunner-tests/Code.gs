@@ -61,7 +61,7 @@ function testRunSuite() {
       //ok
     },
   }
-  var suiteResult = GSTestRunner.runSuite(suite, "GSTestRunner_TEST", {namespace:"bkper", recipient: "test@nimbustecnologia.com.br"})
+  var suiteResult = GSTestRunner.runSuite(suite, "GSTestRunner_TEST_2", {namespace:"bkper", recipient: "test@nimbustecnologia.com.br"})
   
   GSUnit.assertEquals(3, suiteResult.total);
   GSUnit.assertEquals(1, suiteResult.failed);
@@ -96,7 +96,7 @@ function testGetSuiteResult() {
   //Fill suite
   testRunSuite();
   
-  var suiteResult = GSTestRunner.getSuiteResult("GSTestRunner_TEST",  "bkper")
+  var suiteResult = GSTestRunner.getSuiteResult("GSTestRunner_TEST_2",  "bkper")
   
   GSUnit.assertEquals(3, suiteResult.total);
   GSUnit.assertEquals(1, suiteResult.failed);
