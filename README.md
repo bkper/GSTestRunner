@@ -9,7 +9,7 @@
 
 [Google Apps Script] library to run tests, publish results and send email notifications of test failures.
 
-GSTestRunner helps with [TDD] and also let you set a lightweight [CI] for your GS libraries.
+GSTestRunner helps with [TDD] and also let you set a lightweight [CI] with Apps Script.
 
 It does NOT provide assertions. For that, we suggest [GSUnit].
 
