@@ -11,9 +11,9 @@
 
 # GSTestRunner  [![GSTests status](https://gs-tests-status.appspot.com/badge.svg?suite=GSTestRunner&namespace=bkper)](https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?suite=GSTestRunner&namespace=bkper)
 
-[Google Apps Script] library to run tests, publish results and send email notifications of test failures.
+[Google Apps Script] library to **run tests**, **publish results** and send **email notifications** of test failures.
 
-[GSTestRunner] helps with [TDD] and also let you set a lightweight [CI] with Apps Script.
+[GSTestRunner] helps with [TDD] and also let you set a lightweight [CI] for your Apps Script codebase.
 
 It does NOT provide assertions. For that, we suggest [GSUnit].
 
