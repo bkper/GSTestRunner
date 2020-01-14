@@ -43,7 +43,7 @@ function testB_() {
 
 Then, run the suite passing `this` as the suite object, and set a trigger to periodically run the test suite, depending on your needs - every hour would be good ;)
 
-The results based on code above can be found by clicking here: [![GSTests status](https://gs-tests-status.appspot.com/badge.svg?suite=Get Started&namespace=bkper)](https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?suite=Get Started&namespace=bkper)
+The results based on code above can be found by clicking here: [![GSTests status](https://gs-tests-status.appspot.com/badge.svg?suite=Get%20Started&namespace=bkper)](https://script.google.com/macros/s/AKfycbyWJJFIwoqnNudRMGse18qVNWw5aa7g03-iLmL_rjqO8mg-MjI/exec?suite=Get%20Started&namespace=bkper)
 
 If you are testing another library, don't forget to let the [Development Mode] on, so the test will run always on latest code version.
 
@@ -167,7 +167,7 @@ With [GSTestRunner], you can embed little status badges into your project's READ
 
 To get the links, on suite result page, just click on badge:
 
-![Status Badge links](http://developers.bkper.com/images/docs/gsTestRunnerBadge.png)
+![Status Badge links](https://gs-tests-status.appspot.com/badge.svg?suite=BkperApp&namespace=bkpertest)
 
 
 #Complete example

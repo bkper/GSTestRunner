@@ -1,2 +1,5 @@
-/.project
-/.DS_Store
+/.history
+.DS_Store
+node_modules
+build/
+yarn-error.log
